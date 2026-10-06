@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #f3ece1;
+  --color-cream-deep: #e8dccb;
+  --color-ivory: #fbf7f0;
+  --color-burgundy: #3b121a;
+  --color-ink: #2a1a17;
+  --color-muted: #7a665b;
+  --color-line: #2a1a1740;
+  --color-line-light: #f3ece140;
+  --color-terracotta: #a8563c;
+
+  --font-display: var(--font-lexend-exa), system-ui, sans-serif;
+  --font-serif: var(--font-bodoni-moda), serif;
+  --font-body: var(--font-instrument-sans), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Small caps-style UI label used across nav, buttons, eyebrows and badges */
+@utility label {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
